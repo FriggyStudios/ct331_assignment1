@@ -3,6 +3,12 @@
 
 typedef struct listElementStruct listElement;
 
+typedef struct listElementStruct{
+  char* data;
+  size_t size;
+  struct listElementStruct* next;
+} listElement;
+
 //Creates a new linked list element with given content of size
 //Returns a pointer to the element
 listElement* createEl(char* data, size_t size);

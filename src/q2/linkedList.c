@@ -3,12 +3,6 @@
 #include <string.h>
 #include "linkedList.h"
 
-typedef struct listElementStruct{
-  char* data;
-  size_t size;
-  struct listElementStruct* next;
-} listElement;
-
 //Creates a new linked list element with given content of size
 //Returns a pointer to the element
 listElement* createEl(char* data, size_t size){
@@ -52,13 +46,12 @@ listElement* insertAfter(listElement* el, char* data, size_t size){
 
 //Delete the element after the given el
 void deleteAfter(listElement* after){
-  listElement* delete = after->next;
+ listElement* delete = after->next;
   listElement* newNext = delete->next;
   after->next = newNext;
   //need to free the memory because we used malloc
   free(delete->data);
   free(delete);
-
 }
 //Returns the number of elements in a linked list.
 int length(listElement* list){ 
