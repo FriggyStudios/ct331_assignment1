@@ -3,13 +3,6 @@
 #include <string.h>
 #include "genericLinkedList.h"
 
-typedef struct listElementStruct{
-  void* data;
-  size_t size;
-  struct listElementStruct* next;
-  printFunction print;
-} listElement;
-
 //Creates a new linked list element with given content of size
 //Returns a pointer to the element
 listElement* createEl(void* data, size_t size, printFunction printFunc){
@@ -18,7 +11,7 @@ listElement* createEl(void* data, size_t size, printFunction printFunc){
     //malloc has had an error
     return NULL; //return NULL to indicate an error.
   }
-  char* dataPointer = malloc(size);
+  void* dataPointer = malloc(size);
   if(dataPointer == NULL){
     //malloc has had an error
     free(e); //release the previously allocated memory

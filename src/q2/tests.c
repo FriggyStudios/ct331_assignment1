@@ -126,7 +126,7 @@ void testEnqueue(){
   size_t size = 30;
   listElement* e = createEl(string1,size);
   listElement** list = &e;
-  push(list,string2,size);
+  enqueue(list,string2,size);
   
   if(e->next == NULL)
     printf("Error: enqueue next not updated \n");  

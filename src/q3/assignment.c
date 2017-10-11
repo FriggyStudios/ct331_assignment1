@@ -2,10 +2,6 @@
 #include "genericLinkedList.h"
 #include "tests.h"
 
-void printChar(void* data);
-void printInt(void* data);
-void printFloat(void* data);
-
 void printChar(void* data){
   printf("%s\n",(char*)(data));
 }
@@ -36,6 +32,16 @@ int main(int arg, char* argc[]){
  
   printf("\nPop from  List\n");
   pop(&l);
+  traverse(l); 
+  printf("Length: %d\n",length(l));
+
+  printf("\nEnqueue to  List\n");
+  enqueue(&l,&three,10,printFloat);
+  traverse(l); 
+  printf("Length: %d\n",length(l));
+
+  printf("\nDequeue from  List\n");
+  dequeue(l);
   traverse(l); 
   printf("Length: %d\n",length(l));
 
